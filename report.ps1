@@ -90,10 +90,10 @@ foreach($fsSMB in (Get-SmbShare))
 [string]$rptNameSFACLs = ".\DWS_Report_FileServer_SharedFolderACLs_on_" + $srvName + "_" + $rptDate + ".csv";
 
 #Export SMB Report to CSV
-$raSMB | Sort-Object -Property Path | Select-Object -Property Name,Path,Description | Export-Csv -Path $rptNameSMB -NoTypeInformation;
+$raSMB | Sort-Object -Property Path | Select-Object -Property Name,Path,Description | Export-Csv -Encoding default -Path $rptNameSMB -NoTypeInformation;
 
 #Export SMB Access Report to CSV
-$raSMBAccess | Sort-Object -Property SharePath | Select-Object -Property ShareName,AccountName,AccessControlType,AccessRight,SharePath | Export-Csv -Path $rptNameSMBAccess -NoTypeInformation;
+$raSMBAccess | Sort-Object -Property SharePath | Select-Object -Property ShareName,AccountName,AccessControlType,AccessRight,SharePath | Export-Csv -Encoding default -Path $rptNameSMBAccess -NoTypeInformation;
 
 #Export Shared Folder ACLs Report to CSV
-$raShareFldACLs | Sort-Object -Property SharePath | Select-Object -Property ShareName,IdentityReference,FileSystemRights,AccessControlType,IsInherited,SharePath | Export-Csv -Path $rptNameSFACLs -NoTypeInformation;
+$raShareFldACLs | Sort-Object -Property SharePath | Select-Object -Property ShareName,IdentityReference,FileSystemRights,AccessControlType,IsInherited,SharePath | Export-Csv -Encoding default -Path $rptNameSFACLs -NoTypeInformation;
