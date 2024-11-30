@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop"
 $excludedShares = @('C$', 'ADMIN$', 'SYSVOL', 'NETLOGON', 'IPC$', 'PRINT$', 'localsplonly')
 $shares = Get-SmbShare | Where-Object { $_.Name -notin $excludedShares }
 
-$excludedUsers = @('BUILTIN\Users', 'BUILTIN\Administrators', 'NT AUTHORITY\SYSTEM', 'ATEK\Domain Users', 'CREATOR OWNER')
+$excludedUsers = @('BUILTIN\Users', 'BUILTIN\Administrators', 'NT AUTHORITY\SYSTEM', 'CREATOR OWNER')
 
 $totalShares = $shares.Count
 $currentShareIndex = 0
