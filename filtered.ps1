@@ -66,7 +66,7 @@ foreach ($share in $shares) {
                 } | Where-Object { $_ }
 
                 # Export permissions of the current directory to the CSV file
-                $permissions | Select-Object -Property * -Unique | Export-Csv -Path $outputPath -Append -NoTypeInformation
+                $permissions | Select-Object -Property * -Unique | Export-Csv -Encoding default -Path $outputPath -Append -NoTypeInformation
             } catch {
                 Write-Host "Error processing directory: $directoryPath. Skipping..." -ForegroundColor Red
             }
